@@ -1,23 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import "./index.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ContactCard from "./ContactCard";
+import FrequentlyAskedQuestions from "./FrequentlyAskedQuestions";
+import LoginForm from "./LoginForm";
+import NavBar from "./NavBar";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route
+            path="/faq"
+            element={
+              <FrequentlyAskedQuestions
+                question="What does “CSS” stand for?"
+                answer="Cool Styling Strategy"
+              />
+            }
+          ></Route>
+          <Route
+            path="/contact"
+            element={
+              <ContactCard
+                avatarSrc="/course-materials/cat-300px.jpg"
+                name="Mittens"
+                email="meow@gmail.com"
+              />
+            }
+          ></Route>
+          <Route
+            path="/login"
+            element={
+              <LoginForm
+                handleSubmit={(ev) => {
+                  ev.preventDefault();
+                  alert("Submitted!");
+                }}
+              />
+            }
+          ></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
