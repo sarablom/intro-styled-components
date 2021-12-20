@@ -32,6 +32,7 @@ list-style-type: none;
 
 const ListItem = styled.li `
 padding: 2rem;
+text-decoration: none;
 `
 
 export default NavBar

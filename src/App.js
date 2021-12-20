@@ -1,4 +1,4 @@
-import "./index.css";
+import GlobalStyles from './GlobalStyles';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ContactCard from "./ContactCard";
 import FrequentlyAskedQuestions from "./FrequentlyAskedQuestions";
@@ -43,6 +43,7 @@ function App() {
           ></Route>
         </Routes>
       </Router>
+      <GlobalStyles />
     </div>
   );
 }
